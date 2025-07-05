@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>To-Do List</h1>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+        </header>
+
+        <div class="task-controls">
+            <!-- Search Functionality -->
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="task-search" 
+                    placeholder="Search tasks..." 
+                    class="search-input"
+                >
+            </div>
+
+            <!-- Task Input Form -->
+            <form id="task-form" class="task-form">
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="task-input" 
+                        placeholder="Add a new task..." 
+                        required
+                    >
+                    <button type="submit" class="primary-btn">Add Task</button>
+                </div>
+                
+                <div class="form-options">
+                    <!-- Due Date Field -->
+                    <div class="form-group">
+                        <label for="task-due-date">Due Date:</label>
+                        <input 
+                            type="date" 
+                            id="task-due-date" 
+                            class="task-due-date"
+                        >
+                    </div>
+                    
+                    <!-- Priority Indicator -->
+                    <div class="form-group">
+                        <label for="task-priority">Priority:</label>
+                        <select id="task-priority" class="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Task Visibility Controls -->
+            <div class="visibility-controls">
+                <button class="visibility-btn active" data-filter="all">All Tasks</button>
+                <button class="visibility-btn" data-filter="active">Active</button>
+                <button class="visibility-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="clear-completed" class="secondary-btn">
+                    Clear Completed
+                </button>
+                <button id="toggle-all" class="secondary-btn">
+                    Toggle All
+                </button>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <ul id="task-list" class="task-list"></ul>
+
+        <!-- Task Counter -->
+        <div class="task-counter">
+            <span id="remaining-count">0</span> tasks remaining
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="add-task-fab">+</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
